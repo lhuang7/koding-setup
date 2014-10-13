@@ -34,7 +34,7 @@ mkdir Workstation
 # Install basic needed packages
 sudo apt-get update
 sudo apt-get install -y build-essential libedit2 libglu1-mesa-dev libgmp3-dev zlib1g-dev curl
-sudo apt-get install -y freeglut3-dev wget ncurses-dev libcurl4-gnutls-dev git autoconf subversion 
+sudo apt-get install -y freeglut3-dev wget ncurses-dev libcurl4-gnutls-dev git autoconf 
 sudo apt-get install -y libtool
 
 # Install other tool
@@ -52,16 +52,18 @@ rm -rf libgmp3c2_4.3.2*.deb
 # Install ghc7.8.3
 wget -O ghc.tar.bz2 http://www.haskell.org/ghc/dist/7.8.3/ghc-7.8.3-x86_64-unknown-linux-deb7.tar.bz2
 tar xvfj ghc.tar.bz2
+rm ghc.tar.bz2 
 cd ghc-7.8.3 && ./configure --prefix=$HOME/.ghc-7.8.3-rc11 
-cd ghc-7.8.3 && make install
+make install
+cd ..
 rm -rf ghc.tar.bz2 ghc-7.8.3
 export PATH=$HOME/.ghc-7.8.3-rc11/bin:$PATH
-ghc --version
 
 # Install cabal1.20.0.3
 wget -O cabal.tar.gz http://hackage.haskell.org/package/cabal-install-1.20.0.3/cabal-install-1.20.0.3.tar.gz
 tar xvfz cabal.tar.gz
 cd cabal-install-1.20.0.3 && ./bootstrap.sh
+cd ..
 rm -rf cabal-install-1.20.0.3 cabal.tar.gz
 export PATH=$HOME/.cabal/bin:$PATH
 
