@@ -9,8 +9,8 @@
 #bash_version    :4.1.5(1)-release
 #==============================================================================
 
-mv /.zshrc ~/.zshrc_config
-mv /.emacs ~/.emacs_config
+cp ./.zshrc ~/.zshrc_config
+cp ./.emacs ~/.emacs_config
 cd $Home
 
 # Clean up Diretory
@@ -29,6 +29,7 @@ mkdir Videos
 mkdir Public
 mkdir Share
 mkdir temp
+mkdir Workstation
 
 # Install basic needed packages
 sudo apt-get update
@@ -37,9 +38,9 @@ sudo apt-get install -y freeglut3-dev wget ncurses-dev libcurl4-gnutls-dev git a
 sudo apt-get install -y libtool
 
 # Install other tool
-RUN sudo apt-get install -y zsh
-RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-RUN sudo chsh -s $(which zsh) $(whoami)
+sudo apt-get install -y zsh
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+sudo chsh -s $(which zsh) $(whoami)
 
 mv ~/.zshrc_config ~/.zshrc
 
